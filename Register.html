@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image:url( https://image.slidesdocs.com/responsive-images/background/e-commerce-carnival-shopping-color-gradient-e-commerce-activity-poster-powerpoint-background_37bba51257__960_540.jpg);
+        background-repeat:no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        margin: 0;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    
+        }
+         
+        form {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgb(45, 241, 241);
+
+        }
+        label{
+            display: inline-block;
+            width: 30;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 50%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+    
+        .submit-btn:hover{  display: block;
+            width: 50%;
+            height: 50%;
+            text-align: center;
+            text-decoration: none;
+            background-color: #0056b3;
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-sizing: content-box;
+
+        }
+        .login-btn {
+            display: block;
+            width: 50%;
+            height: 50%;
+            text-align: center;
+            text-decoration: none;
+            background-color: #3deb4b;
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-sizing: content-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <form id="registrationForm" action="#" method="POST">
+        <h2>Registration Form</h2>
+        <label for="fullname">Full Name:                </label>
+        <input type="text" id="fullname" name="fullname" required><br>
+        <label for="email">Email:                      </label>
+        <input type="email" id="email" name="email" required><br>
+        <label for="password">Password:                </label>
+        <input type="password" id="password" name="password" required><br>
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
+        <input type="submit" value="Register" classs="submit-btn">
+        <a href="login.html" class="login-btn"> Login  </a>
+    </form>
+    </div>
+
+    <script>
+        
+        document.getElementById("registrationForm").addEventListener("submit", function(event){
+            event.preventDefault(); // Prevent form submission
+            
+            // Here you can add your form validation logic
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+</html>
