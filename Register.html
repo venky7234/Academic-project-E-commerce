@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     <style>
@@ -103,9 +107,8 @@
     <script>
         
         document.getElementById("registrationForm").addEventListener("submit", function(event){
-            event.preventDefault(); // Prevent form submission
-            
-            // Here you can add your form validation logic
+            event.preventDefault(); 
+            alert('Sucessful Register.');
             window.location.href = "login.html";
         });
     </script>
