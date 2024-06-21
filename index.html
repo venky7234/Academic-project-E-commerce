@@ -1,116 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-image:url( https://image.slidesdocs.com/responsive-images/background/e-commerce-carnival-shopping-color-gradient-e-commerce-activity-poster-powerpoint-background_37bba51257__960_540.jpg);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-commerce Registration</title>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrgaKfTgn6WTB6KZB6B-08KH-kTP3dFCksWA&s);
         background-repeat:no-repeat;
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
-        margin: 0;
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-    
-        }
-         
-        form {
-            width: 50%;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: rgb(45, 241, 241);
+}
 
-        }
-        label{
-            display: inline-block;
-            width: 30;
-            margin-bottom: 10px;
-        }
-        input[type="text"], input[type="email"], input[type="password"] {
-            width: 100%;
-        padding: 10px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        }
-        input[type="submit"] {
-            width: 50%;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            box-sizing: border-box;
-        }
-    
-        .submit-btn:hover{  display: block;
-            width: 50%;
-            height: 50%;
-            text-align: center;
-            text-decoration: none;
-            background-color: #0056b3;
-            color: #000;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-            box-sizing: content-box;
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkEfdgw6SeTjCjOUK-z1_-nnavC6Dp64f5og&s);
+  background-repeat:no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+}
 
-        }
-        .login-btn {
-            display: block;
-            width: 50%;
-            height: 50%;
-            text-align: center;
-            text-decoration: none;
-            background-color: #3deb4b;
-            color: #000;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-            box-sizing: content-box;
-        }
-    </style>
+h2 {
+  text-align: center;
+  background-color: rgb(223, 120, 183);
+}
+
+.form-group {
+  margin-bottom: 15px;
+  
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  display: block;
+  width: 80%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#loginBtn {
+  margin-top: 20px;
+  background-color: #007bff;
+}
+
+#loginBtn:hover {
+  background-color: #0056b3;
+}
+
+</style>
 </head>
 <body>
-    <div class="container">
-    <form id="registrationForm" action="#" method="POST">
-        <h2>Registration Form</h2>
-        <label for="fullname">Full Name:                </label>
-        <input type="text" id="fullname" name="fullname" required><br>
-        <label for="email">Email:                      </label>
-        <input type="email" id="email" name="email" required><br>
-        <label for="password">Password:                </label>
-        <input type="password" id="password" name="password" required><br>
-        <label for="confirm_password">Confirm Password:</label>
-        <input type="password" id="confirm_password" name="confirm_password" required>
-        <input type="submit" value="Register" classs="submit-btn">
-        <a href="login.html" class="login-btn"> Login  </a>
-    </form>
+<div class="container">
+  <h2>Registration-form</h2>
+  <form id="registrationForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
     </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit" id="submitBtn">Register</button>
+  </form>
+  <button id="loginBtn">Login</button>
+</div>
 
-    <script>
-        
-        document.getElementById("registrationForm").addEventListener("submit", function(event){
-            event.preventDefault(); 
-            alert('Sucessful Register.');
-            window.location.href = "login.html";
-        });
-    </script>
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission
+  alert('Successfully registered!');
+  this.reset();
+});
+
+document.getElementById('loginBtn').addEventListener('click', function() {
+  window.location.href = 'login.html';
+});
+
+</script>
 </body>
 </html>
