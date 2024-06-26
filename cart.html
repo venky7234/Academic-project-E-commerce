@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #52DCCD;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .cart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #444;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #444;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            color: white;
+        }
+        .btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1em;
+            display: block;
+            margin: 20px auto 0;
+            text-align: center;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+        .btn.clear {
+            background-color: #d9534f;
+        }
+        .btn.clear:hover {
+            background-color: #c9302c;
+        }
+        .payment-container {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .payment-container input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .payment-container button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <h1>Your Cart</h1>
+        <div id="cart-items">
+            <p>Your cart is empty.</p>
+        </div>
+        <button class="btn" onclick="togglePaymentForm()">Proceed to Checkout</button>
+        <button class="btn clear" onclick="clearCart()">Clear All</button>
+        <a href="home.html" class="btn">Back to Shopping</a>
+    </div>
+    <div class="payment-container" id="payment-container">
+        <h2>Payment Details</h2>
+        <form id="payment-form">
+            <input type="text" id="card-name" name="card-name" placeholder="Cardholder Name" required>
+            <input type="text" id="card-number" name="card-number" placeholder="Card Number" required>
+            <input type="text" id="card-expiry" name="card-expiry" placeholder="Expiry Date (MM/YY)" required>
+            <input type="text" id="card-cvc" name="card-cvc" placeholder="CVC" required>
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', loadCart);
+
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartItems = document.getElementById('cart-items');
+            if (cart.length > 0) {
+                cartItems.innerHTML = '<ul>' + cart.map(item => `<li>${item.name} - $${item.price.toFixed(2)}</li>`).join('') + '</ul>';
+            } else {
+                cartItems.innerHTML = '<p>Your cart is empty.</p>';
+            }
+        }
+
+        function clearCart() {
+            localStorage.removeItem('cart');
+            loadCart();
+        }
+
+        function togglePaymentForm() {
+            let paymentContainer = document.getElementById('payment-container');
+            paymentContainer.style.display = paymentContainer.style.display === 'none' ? 'block' : 'none';
+        }
+
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Payment submitted successfully!');
+            clearCart();
+            togglePaymentForm();
+        });
+    </script>
+</body>
+</html>
