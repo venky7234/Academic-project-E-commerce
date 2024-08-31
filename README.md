@@ -1,4 +1,7 @@
 # Academic-project-E-commerce
+
+My website is hosted  link is https://venkyaistore.netlify.app
+
 basic e commerce webside
 
 Username:Admin
